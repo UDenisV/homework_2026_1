@@ -25,7 +25,9 @@ const factorial = n => {
     }
     
     const iter = m => {
-        if (m <= 1) return 1;
+        if (m <= 1) {
+            return 1;
+        }
         return m * iter(m - 1);
     };
 

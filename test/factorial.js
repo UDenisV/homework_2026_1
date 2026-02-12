@@ -39,4 +39,17 @@ QUnit.module('Тестируем функцию factorial', () => {
     QUnit.test('Факториал для очень больших чисел возвращает Infinity', (assert) => {
         assert.strictEqual(factorial(200), Infinity, '200! = Infinity');
     });
+
+    QUnit.test('Проверка невалидные входные данные', (assert) => {
+        assert.throws(() => factorial(null), /Факториал определен только для целых чисел/, 'null');
+        assert.throws(() => factorial(undefined), /Факториал определен только для целых чисел/, 'undefined');
+        assert.throws(() => factorial(true), /Факториал определен только для целых чисел/, 'boolean');
+        assert.throws(() => factorial({}), /Факториал определен только для целых чисел/, 'object');
+        assert.throws(() => factorial([]), /Факториал определен только для целых чисел/, 'array');
+        assert.throws(() => factorial(() => {}), /Факториал определен только для целых чисел/, 'function');
+        assert.throws(() => factorial(NaN), /Факториал определен только для целых чисел/, 'NaN');
+        assert.throws(() => factorial(Infinity), /Факториал определен только для целых чисел/, 'Infinity');
+        assert.throws(() => factorial(-Infinity), /Факториал определен только для целых чисел/, '-Infinity');
+        assert.throws(() => factorial(), /Факториал определен только для целых чисел/, 'без аргумента');
+    });
 });

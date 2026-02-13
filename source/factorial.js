@@ -23,6 +23,17 @@ const factorial = n => {
     if (n === 0 || n === 1) {
         return 1;
     }
+
+    /**
+     * Рекурсивная внутренняя функция для вычисления факториала
+     * @param {Number} m - текущее число для умножения
+     * 
+     * @example
+     * // returns 5 * iter(5 - 1)
+     * iter(5)
+     * 
+     * @returns {Number}
+     */
     
     const iter = m => {
         if (m <= 1) {

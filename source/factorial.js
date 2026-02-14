@@ -30,7 +30,6 @@ const factorial = n => {
      * 
      * @returns {Number}
      */
-    
     const iter = m => {
         if (m <= 1) {
             return 1;

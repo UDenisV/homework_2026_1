@@ -9,10 +9,10 @@
  * factorial(5);
  * 
  * @returns {Number}
- * @throws {Error} Если n отрицательное или не является целым числом
+ * @throws {Error} Если n отрицательное, или не является целым числом, или слишком большое (больше 170)
  */
 const factorial = n => {
-    if (!Number.isInteger(n) || typeof n !== 'number') {
+    if (!Number.isInteger(n)) {
         throw new Error('Факториал определен только для целых чисел');
     }
 
@@ -20,22 +20,14 @@ const factorial = n => {
         throw new Error('Факториал не определен для отрицательных чисел');
     }
 
-    /**
-     * Рекурсивная внутренняя функция для вычисления факториала
-     * @param {Number} m - текущее число для умножения
-     * 
-     * @example
-     * // returns 5 * iter(5 - 1)
-     * iter(5)
-     * 
-     * @returns {Number}
-     */
-    const iter = m => {
-        if (m <= 1) {
-            return 1;
-        }
-        return m * iter(m - 1);
-    };
+    if (n > 170) {
+        throw new Error('Факториал не вычисляется для чисел, больших 170');
+    }
 
-    return iter(n);
+    let res = 1;
+    for (let i = 2; i <= n; i++) {
+        res *= i;
+    }
+    
+    return res;
 };

@@ -37,7 +37,9 @@ QUnit.module('Тестируем функцию factorial', () => {
     });
 
     QUnit.test('Факториал для очень больших чисел возвращает Infinity', (assert) => {
-        assert.strictEqual(factorial(200), Infinity, '200! = Infinity');
+        assert.throws(() => {
+            factorial(200);
+        }, /Факториал не вычисляется для чисел, больших 170/, '200! = Infinity');
     });
 
     QUnit.test('Проверка функции на невалидные входные данные', (assert) => {
